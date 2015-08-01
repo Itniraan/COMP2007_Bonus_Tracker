@@ -48,19 +48,25 @@ namespace COMP2007_Bonus_Workout_Assignment
                 }
                 w.WorkoutName = txtName.Text;
                 w.WorkoutType = ddlType.SelectedValue;
-                w.
-                s.FirstMidName = txtFirstName.Text;
-                s.EnrollmentDate = Convert.ToDateTime(txtEnrollmentDate.Text);
+                if (ddlType.SelectedValue == "Strength")
+                {
+                    w.WorkoutWeight = Convert.ToInt32(txtWeight.Text);
+                    w.WorkoutSets = Convert.ToInt32(txtSets.Text);
+                    w.Reps = Convert.ToInt32(txtReps.Text);
+                }
+
+                w.WorkoutTime = Convert.ToDecimal(txtLength.Text);
+                w.TimeCompleted = Convert.ToDateTime(calTime.SelectedDate);
 
                 // Call add only if we have no student ID
-                if (StudentID == 0)
+                if (WorkoutID == 0)
                 {
-                    db.Students.Add(s);
+                    db.Workouts.Add(w);
                 }
                 db.SaveChanges();
 
                 // Redirect to the updated students page
-                Response.Redirect("/admin/students.aspx");
+                Response.Redirect("/exercises.aspx");
             }
         }
 

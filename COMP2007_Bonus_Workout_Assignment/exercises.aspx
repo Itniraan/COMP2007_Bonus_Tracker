@@ -20,10 +20,11 @@
             <asp:BoundField DataField="WorkoutID" HeaderText="Workout ID" SortExpression="WorkoutID" />
             <asp:BoundField DataField="WorkoutName" HeaderText="Workout Name" SortExpression="WorkoutName" />
             <asp:BoundField DataField="WorkoutType" HeaderText="Workout Type" SortExpression="WorkoutType" />
+            <asp:BoundField DataField="WorkoutWeight" HeaderText="Workout Weight" SortExpression="WorkoutWeight" />
             <asp:BoundField DataField="Reps" HeaderText="Workout Reps" SortExpression="Reps" />
             <asp:BoundField DataField="WorkoutSets" HeaderText="Workout Sets" SortExpression="WorkoutSets" />
             <asp:BoundField DataField="WorkoutTime" HeaderText="Length of Workout" SortExpression="WorkoutTime" />
-            <asp:BoundField DataField="TimeCompleted" HeaderText="Time Completed" SortExpression="TimeCompleted" />
+            <asp:BoundField DataField="TimeCompleted" HeaderText="Date Completed" SortExpression="TimeCompleted" DataFormatString="{0:yyyy/MM/dd}" />
             <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/exercise.aspx" DataNavigateUrlFields="WorkoutID" DataNavigateUrlFormatString="exercise.aspx?WorkoutID={0}" />
             <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
         </Columns>
