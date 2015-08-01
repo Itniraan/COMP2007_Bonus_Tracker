@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\blake\documents\visual studio 2013\Projects\COMP2007_Bonus_Workout_Assignment\COMP2007_Bonus_Workout_Assignment\Models\WorkoutModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Blake\Documents\Visual Studio 2013\Projects\COMP2007_Bonus_Workout_Assignment\COMP2007_Bonus_Workout_Assignment\Models\WorkoutModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
