@@ -31,6 +31,15 @@ namespace COMP2007_Bonus_Workout_Assignment {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
+        /// nameRequiredValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator nameRequiredValidator;
+        
+        /// <summary>
         /// udpStrength control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace COMP2007_Bonus_Workout_Assignment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWeight;
+        
+        /// <summary>
+        /// lblWeight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWeight;
         
         /// <summary>
         /// txtReps control.

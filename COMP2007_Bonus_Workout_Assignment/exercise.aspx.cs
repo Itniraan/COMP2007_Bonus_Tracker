@@ -22,7 +22,42 @@ namespace COMP2007_Bonus_Workout_Assignment
 
         protected void GetWorkout()
         {
+            // Populate form with existing student record
+            Int32 WorkoutID = Convert.ToInt32(Request.QueryString["WorkoutID"]);
 
+            try
+            {
+                using (WorkoutEntities db = new WorkoutEntities())
+                {
+                    Workout w = (from objW in db.Workouts
+                                 where objW.WorkoutID == WorkoutID
+                                 select objW).FirstOrDefault();
+
+                    if (w != null)
+                    {
+                        txtName.Text = w.WorkoutName;
+                        ddlType.SelectedValue = w.WorkoutType;
+                        if (ddlType.SelectedValue == "Strength")
+                        {
+                            txtReps.Text = Convert.ToString(w.Reps);
+                            txtWeight.Text = Convert.ToString(w.WorkoutWeight);
+                            txtSets.Text = Convert.ToString(w.WorkoutSets);
+                            pnlStrength.Visible = true;
+                        }
+                        else
+                        {
+                            pnlStrength.Visible = false;
+                        }
+                        txtLength.Text = Convert.ToString(w.WorkoutTime);
+                        calTime.SelectedDate = Convert.ToDateTime(w.TimeCompleted);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("/error.aspx");
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
