@@ -15,6 +15,13 @@
 </head>
 
 <body>
+    <nav class="nav navbar-default">
+        <a href="/default.aspx" class="navbar-brand">Workout Tracker</a>
+        <ul class="nav navbar-nav">
+            <li><a href="/exercises.aspx">List Exercises</a></li>
+            <li><a href="/exercise.aspx">Add Exercise</a></li>
+        </ul>
+    </nav>
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

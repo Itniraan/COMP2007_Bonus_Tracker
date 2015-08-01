@@ -20,6 +20,7 @@ namespace COMP2007_Bonus_Workout_Assignment.Models
         public Nullable<int> Reps { get; set; }
         public Nullable<int> WorkoutSets { get; set; }
         public Nullable<decimal> WorkoutTime { get; set; }
-        public System.DateTime TimeCompleted { get; set; }
+        public Nullable<System.DateTime> TimeCompleted { get; set; }
+        public Nullable<int> WorkoutWeight { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="comp2007Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="comp2007Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Workouts">
           <Key>
             <PropertyRef Name="WorkoutID" />
@@ -15,13 +15,13 @@
           <Property Name="Reps" Type="int" />
           <Property Name="WorkoutSets" Type="int" />
           <Property Name="WorkoutTime" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="TimeCompleted" Type="datetime" Nullable="false" />
+          <Property Name="TimeCompleted" Type="date" />
+          <Property Name="WorkoutWeight" Type="int" />
         </EntityType>
         <EntityContainer Name="comp2007ModelStoreContainer">
           <EntitySet Name="Workouts" EntityType="Self.Workouts" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="comp2007Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -35,7 +35,8 @@
           <Property Name="Reps" Type="Int32" />
           <Property Name="WorkoutSets" Type="Int32" />
           <Property Name="WorkoutTime" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="TimeCompleted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TimeCompleted" Type="DateTime" Precision="0" />
+          <Property Name="WorkoutWeight" Type="Int32" />
         </EntityType>
         <EntityContainer Name="WorkoutEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Workouts" EntityType="Self.Workout" />
@@ -49,6 +50,7 @@
           <EntitySetMapping Name="Workouts">
             <EntityTypeMapping TypeName="comp2007Model.Workout">
               <MappingFragment StoreEntitySet="Workouts">
+                <ScalarProperty Name="WorkoutWeight" ColumnName="WorkoutWeight" />
                 <ScalarProperty Name="WorkoutID" ColumnName="WorkoutID" />
                 <ScalarProperty Name="WorkoutName" ColumnName="WorkoutName" />
                 <ScalarProperty Name="WorkoutType" ColumnName="WorkoutType" />

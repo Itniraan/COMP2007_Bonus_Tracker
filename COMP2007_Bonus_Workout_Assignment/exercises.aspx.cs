@@ -13,5 +13,30 @@ namespace COMP2007_Bonus_Workout_Assignment
         {
 
         }
+
+        protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void grdExercises_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void grdExercises_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void grdExercises_Sorting(object sender, GridViewSortEventArgs e)
+        {
+
+        }
+
+        protected void grdExercises_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
     }
 }
