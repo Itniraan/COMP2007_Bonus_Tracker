@@ -19,7 +19,7 @@ namespace COMP2007_Bonus_Workout_Assignment
             {
                 Session["SortColumn"] = "WorkoutID";
                 Session["SortDirection"] = "ASC";
-                // If loading the page for the first time, populate the student grid
+                // If loading the page for the first time, populate the Workouts grid
                 GetWorkouts();
             }
         }
@@ -30,7 +30,7 @@ namespace COMP2007_Bonus_Workout_Assignment
             using (WorkoutEntities db = new WorkoutEntities())
             {
                 String sortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
-                // Query the Students table, using the Enity Framework
+                // Query the Workouts table, using the Enity Framework
                 var Workouts = from w in db.Workouts
                                select w;
 
@@ -49,6 +49,33 @@ namespace COMP2007_Bonus_Workout_Assignment
 
         protected void grdExercises_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            // Store which row was clicked
+            Int32 selectedRow = e.RowIndex;
+
+            // Get the selected StudentID using the grid's Data Key collection
+            Int32 WorkoutID = Convert.ToInt32(grdExercises.DataKeys[selectedRow].Values["WorkoutID"]);
+
+            try
+            {
+                // Use Enity Framework to remove the selected student from the DB
+                using (WorkoutEntities db = new WorkoutEntities())
+                {
+                    Workout w = (from objW in db.Workouts
+                                 where objW.WorkoutID == WorkoutID
+                                 select objW).FirstOrDefault(); // Using First would get an error if no data comes back, FirstOrDefault won't throw an error
+
+                    // Do the delete
+                    db.Workouts.Remove(w);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("/error.aspx");
+            }
+
+            // Refresh the grid
+            GetWorkouts();
 
         }
 
