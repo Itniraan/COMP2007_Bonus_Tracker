@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <h1>Exercises</h1>
 
     <div>
@@ -13,20 +14,25 @@
         </asp:DropDownList>
     </div>
 
-    <asp:GridView ID="grdExercises" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" 
-         OnRowDeleting="grdExercises_RowDeleting" AllowPaging="true" PageSize="3" AllowSorting="true" OnPageIndexChanging="grdExercises_PageIndexChanging" 
-         OnSorting="grdExercises_Sorting" OnRowDataBound="grdExercises_RowDataBound" DataKeyNames="WorkoutID">
-        <Columns>
-            <asp:BoundField DataField="WorkoutID" HeaderText="Workout ID" SortExpression="WorkoutID" />
-            <asp:BoundField DataField="WorkoutName" HeaderText="Workout Name" SortExpression="WorkoutName" />
-            <asp:BoundField DataField="WorkoutType" HeaderText="Workout Type" SortExpression="WorkoutType" />
-            <asp:BoundField DataField="WorkoutWeight" HeaderText="Workout Weight" SortExpression="WorkoutWeight" />
-            <asp:BoundField DataField="Reps" HeaderText="Workout Reps" SortExpression="Reps" />
-            <asp:BoundField DataField="WorkoutSets" HeaderText="Workout Sets" SortExpression="WorkoutSets" />
-            <asp:BoundField DataField="WorkoutTime" HeaderText="Length of Workout" SortExpression="WorkoutTime" />
-            <asp:BoundField DataField="TimeCompleted" HeaderText="Date Completed" SortExpression="TimeCompleted" DataFormatString="{0:yyyy/MM/dd}" />
-            <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/exercise.aspx" DataNavigateUrlFields="WorkoutID" DataNavigateUrlFormatString="exercise.aspx?WorkoutID={0}" />
-            <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
-        </Columns>
-    </asp:GridView>
+    <asp:UpdatePanel ID="updGrid" runat="server">
+        <ContentTemplate>
+            <asp:GridView ID="grdExercises" runat="server" AutoGenerateColumns="false" CssClass="table table-striped table-hover" 
+                 OnRowDeleting="grdExercises_RowDeleting" AllowPaging="true" PageSize="3" AllowSorting="true" OnPageIndexChanging="grdExercises_PageIndexChanging" 
+                 OnSorting="grdExercises_Sorting" OnRowDataBound="grdExercises_RowDataBound" DataKeyNames="WorkoutID">
+                <Columns>
+                    <asp:BoundField DataField="WorkoutID" HeaderText="Workout ID" SortExpression="WorkoutID" />
+                    <asp:BoundField DataField="WorkoutName" HeaderText="Workout Name" SortExpression="WorkoutName" />
+                    <asp:BoundField DataField="WorkoutType" HeaderText="Workout Type" SortExpression="WorkoutType" />
+                    <asp:BoundField DataField="WorkoutWeight" HeaderText="Workout Weight" SortExpression="WorkoutWeight" />
+                    <asp:BoundField DataField="Reps" HeaderText="Workout Reps" SortExpression="Reps" />
+                    <asp:BoundField DataField="WorkoutSets" HeaderText="Workout Sets" SortExpression="WorkoutSets" />
+                    <asp:BoundField DataField="WorkoutTime" HeaderText="Length of Workout" SortExpression="WorkoutTime" />
+                    <asp:BoundField DataField="TimeCompleted" HeaderText="Date Completed" SortExpression="TimeCompleted" DataFormatString="{0:yyyy/MM/dd}" />
+                    <asp:HyperLinkField HeaderText="Edit" Text="Edit" NavigateUrl="~/exercise.aspx" DataNavigateUrlFields="WorkoutID" DataNavigateUrlFormatString="exercise.aspx?WorkoutID={0}" />
+                    <asp:CommandField HeaderText="Delete" DeleteText="Delete" ShowDeleteButton="true" />
+                </Columns>
+            </asp:GridView>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
 </asp:Content>

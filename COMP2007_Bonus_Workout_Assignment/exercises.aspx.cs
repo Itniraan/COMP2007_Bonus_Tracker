@@ -52,12 +52,12 @@ namespace COMP2007_Bonus_Workout_Assignment
             // Store which row was clicked
             Int32 selectedRow = e.RowIndex;
 
-            // Get the selected StudentID using the grid's Data Key collection
+            // Get the selected WorkoutID using the grid's Data Key collection
             Int32 WorkoutID = Convert.ToInt32(grdExercises.DataKeys[selectedRow].Values["WorkoutID"]);
 
             try
             {
-                // Use Enity Framework to remove the selected student from the DB
+                // Use Enity Framework to remove the selected Workout from the DB
                 using (WorkoutEntities db = new WorkoutEntities())
                 {
                     Workout w = (from objW in db.Workouts
